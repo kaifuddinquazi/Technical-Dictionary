@@ -1,0 +1,119 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class ConsoleDictionary {
+    private HashMap<String, String> dictionary;
+    private Scanner scanner;
+
+    public ConsoleDictionary() {
+        dictionary = new HashMap<>();
+        scanner = new Scanner(System.in);
+        populateDictionary();
+    }
+
+    private void populateDictionary() {
+        // Programming Concepts
+        dictionary.put("algorithm", "A step-by-step procedure to solve a problem.");
+        dictionary.put("variable", "A named storage location in memory.");
+        dictionary.put("function", "A block of code that performs a specific task.");
+        dictionary.put("object", "An instance of a class in OOP.");
+        dictionary.put("class", "A blueprint for creating objects.");
+        dictionary.put("loop", "A control structure that repeats code execution.");
+        dictionary.put("array", "A container holding fixed number of values.");
+        dictionary.put("string", "A sequence of characters.");
+        
+        // Data Types
+        dictionary.put("integer", "A whole number data type.");
+        dictionary.put("float", "A decimal number data type.");
+        dictionary.put("boolean", "A true/false value.");
+        dictionary.put("char", "A single character data type.");
+        
+        // OOP Concepts
+        dictionary.put("inheritance", "Acquiring properties from parent class.");
+        dictionary.put("polymorphism", "Ability to take many forms.");
+        dictionary.put("encapsulation", "Bundling data with methods.");
+        dictionary.put("abstraction", "Hiding implementation details.");
+        
+        // Java-Specific Terms
+        dictionary.put("jvm", "Java Virtual Machine - runs bytecode.");
+        dictionary.put("jre", "Java Runtime Environment.");
+        dictionary.put("jdk", "Java Development Kit.");
+        dictionary.put("bytecode", "Intermediate code executed by JVM.");
+        
+        // Web Development
+        dictionary.put("html", "Hypertext Markup Language for web pages.");
+        dictionary.put("css", "Cascading Style Sheets for styling web pages.");
+        dictionary.put("javascript", "Scripting language for web interactivity.");
+        dictionary.put("api", "Application Programming Interface.");
+        
+        // Database Terms
+        dictionary.put("sql", "Structured Query Language for databases.");
+        dictionary.put("nosql", "Non-relational databases.");
+        dictionary.put("rdbms", "Relational Database Management System.");
+        dictionary.put("orm", "Object-Relational Mapping.");
+        
+        // Version Control
+        dictionary.put("git", "Distributed version control system.");
+        dictionary.put("github", "Platform for hosting Git repositories.");
+        dictionary.put("commit", "Record changes to a repository.");
+        dictionary.put("branch", "Parallel version of a repository.");
+        
+        // Common Programming Terms
+        dictionary.put("syntax", "Rules defining correct code structure.");
+        dictionary.put("compiler", "Translates source code to machine code.");
+        dictionary.put("debugging", "Finding and fixing errors in code.");
+        dictionary.put("framework", "Predefined structure for building applications.");
+        dictionary.put("library", "Collection of pre-written code.");
+        dictionary.put("ide", "Integrated Development Environment.");
+        dictionary.put("stack", "LIFO data structure.");
+        dictionary.put("queue", "FIFO data structure.");
+        dictionary.put("recursion", "Function calling itself.");
+        
+        // Added Tech Buzzwords
+        dictionary.put("ai", "Artificial Intelligence - machine intelligence.");
+        dictionary.put("ml", "Machine Learning - algorithms that learn from data.");
+        dictionary.put("blockchain", "Decentralized digital ledger technology.");
+        dictionary.put("iot", "Internet of Things - network of connected devices.");
+        dictionary.put("bigdata", "Extremely large data sets for analysis.");
+        
+        // Common Error Messages
+        dictionary.put("nullpointerexception", "Trying to use null reference in Java.");
+        dictionary.put("arrayindexoutofboundsexception", "Accessing invalid array index.");
+        dictionary.put("stackoverflow", "When call stack exceeds its limit.");
+    }
+
+    public void start() {
+        System.out.println("=== Programming Dictionary ===");
+        System.out.println("Contains 50+ programming terms");
+        System.out.println("Type 'exit' to quit\n");
+
+        while (true) {
+            System.out.print("Search for a term: ");
+            String searchTerm = scanner.nextLine().toLowerCase().trim();
+
+            if (searchTerm.equals("exit")) {
+                break;
+            }
+
+            if (searchTerm.isEmpty()) {
+                System.out.println("Please enter a term to search.");
+                continue;
+            }
+
+            String definition = dictionary.get(searchTerm);
+            if (definition != null) {
+                System.out.println("\nDefinition: " + definition + "\n");
+            } else {
+                System.out.println("\nTerm not found. Try another word or check spelling.\n");
+            }
+        }
+
+        System.out.println("Goodbye! Happy Coding!");
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        ConsoleDictionary dictionary = new ConsoleDictionary();
+        dictionary.start();
+    }
+}
